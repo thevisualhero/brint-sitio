@@ -514,6 +514,25 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
   .callouts li{font-size:10.5px;padding:4px 7px}
   .callouts b{display:none}
 }
+
+/* fotografía */
+.ph{display:block;width:100%;height:100%;object-fit:cover;background:var(--sg)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero-photo{background:var(--sg)}
+.hero-photo .ph{object-position:50% 22%}
+.hchips{position:absolute;left:16px;bottom:16px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.hchips li{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.96);color:var(--ink);border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1;font-weight:600;box-shadow:0 6px 18px rgba(18,20,22,.18)}
+.hchips .d{width:8px;height:8px;border-radius:2px;background:var(--red)}
+.mp-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;margin-bottom:72px}
+.mp-photo{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.sup{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.sup .sup-photo{margin:0;border:0;background:var(--sg);aspect-ratio:5/4;border-radius:16px;overflow:hidden}
+.about .about-photo{margin:0;background:var(--sg);aspect-ratio:4/3;border-radius:16px;overflow:hidden}
+.sol .art .ph{transition:transform .5s ease}
+.sol:hover .art .ph{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.sol:hover .art .ph{transform:none}}
+@media (max-width:920px){.mp-top{grid-template-columns:minmax(0,1fr);gap:32px;margin-bottom:48px}.sup{grid-template-columns:minmax(0,1fr)}.hero-photo{aspect-ratio:4/3}}
+@media (max-width:640px){.hero-photo{aspect-ratio:4/3}.hchips{left:10px;bottom:10px;gap:6px}.hchips li{font-size:11.5px;padding:6px 9px}.hchips li:first-child{display:none}.mp-photo{aspect-ratio:3/2}}
 </style>
 </head>
 <body>
@@ -549,66 +568,9 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 <symbol id="ic-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5M20 18v3H6.5"/></symbol>
 <symbol id="ic-map" viewBox="0 0 24 24"><path d="M9 4l6 2 6-2v14l-6 2-6-2-6 2V6z"/><path d="M9 4v14M15 6v14"/></symbol>
 
-<!-- Ilustración base: multifuncional de piso -->
-<symbol id="il-mfp" viewBox="0 0 240 260">
-  <ellipse cx="120" cy="250" rx="102" ry="6" fill="#121416" opacity=".07"/>
-  <g fill="none" stroke="#32363A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M58 34h120l12-16H72z" fill="#FFFFFF"/>
-    <path d="M84 22h76" stroke="#C3C7CA"/>
-    <rect x="40" y="34" width="160" height="26" rx="5" fill="#FFFFFF"/>
-    <rect x="34" y="60" width="172" height="78" rx="7" fill="#FFFFFF"/>
-    <rect x="52" y="84" width="104" height="9" rx="2" fill="#E8EAEB"/>
-    <path d="M62 84l8-10h66l6 10" fill="#FCFCFB"/>
-    <path d="M34 112h172" stroke="#E8EAEB"/>
-    <rect x="166" y="42" width="54" height="32" rx="4" fill="#121416" stroke="#121416"/>
-    <rect x="171" y="47" width="44" height="22" rx="2" fill="#3E4347" stroke="none"/>
-    <path d="M176 54h22M176 60h14" stroke="#8E9499" stroke-width="1.5"/>
-    <circle cx="190" cy="124" r="3.2" fill="#E1221A" stroke="none"/>
-    <rect x="38" y="138" width="164" height="102" rx="6" fill="#F5F6F6"/>
-    <path d="M38 172h164M38 206h164"/>
-    <rect x="104" y="150" width="32" height="5" rx="2.5" fill="#32363A" stroke="none"/>
-    <rect x="104" y="184" width="32" height="5" rx="2.5" fill="#32363A" stroke="none"/>
-    <rect x="104" y="218" width="32" height="5" rx="2.5" fill="#32363A" stroke="none"/>
-    <path d="M52 240v6M188 240v6"/>
-  </g>
-</symbol>
 
-<!-- Multifuncional de escritorio -->
-<symbol id="il-desk" viewBox="0 0 240 160">
-  <g fill="none" stroke="#32363A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="52" y="30" width="136" height="22" rx="5" fill="#FFFFFF"/>
-    <rect x="44" y="52" width="152" height="72" rx="8" fill="#FFFFFF"/>
-    <rect x="62" y="72" width="92" height="8" rx="2" fill="#E8EAEB"/>
-    <path d="M70 72l6-8h56l4 8" fill="#FCFCFB"/>
-    <rect x="160" y="62" width="28" height="16" rx="2" fill="#121416" stroke="#121416"/>
-    <circle cx="176" cy="110" r="2.8" fill="#E1221A" stroke="none"/>
-    <rect x="56" y="124" width="128" height="12" rx="3" fill="#F5F6F6"/>
-  </g>
-</symbol>
 
-<!-- Alto volumen: multifuncional + alimentador + finalizador -->
-<symbol id="il-hv" viewBox="0 0 380 270">
-  <ellipse cx="190" cy="258" rx="170" ry="6" fill="#121416" opacity=".07"/>
-  <g fill="none" stroke="#32363A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="14" y="158" width="72" height="92" rx="5" fill="#F5F6F6"/>
-    <path d="M14 190h72"/>
-    <rect x="36" y="200" width="28" height="5" rx="2.5" fill="#32363A" stroke="none"/>
-    <rect x="296" y="72" width="70" height="178" rx="6" fill="#FFFFFF"/>
-    <path d="M296 112h70M296 170h70"/>
-    <path d="M366 96l14-4M366 140l14-4" />
-    <rect x="316" y="196" width="30" height="5" rx="2.5" fill="#32363A" stroke="none"/>
-  </g>
-  <use href="#il-mfp" x="72" y="8" width="230" height="250"/>
-</symbol>
 
-<!-- Color -->
-<symbol id="il-color" viewBox="0 0 240 260">
-  <use href="#il-mfp" x="0" y="0" width="240" height="260"/>
-  <rect x="54" y="118" width="10" height="10" rx="2" fill="#0097B8"/>
-  <rect x="68" y="118" width="10" height="10" rx="2" fill="#C2307A"/>
-  <rect x="82" y="118" width="10" height="10" rx="2" fill="#E0B100"/>
-  <rect x="96" y="118" width="10" height="10" rx="2" fill="#121416"/>
-</symbol>
 
 <!-- Flota / plano de varias ubicaciones -->
 <symbol id="il-fleet" viewBox="0 0 400 240">
@@ -627,47 +589,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
   <circle cx="200" cy="120" r="7" fill="#E1221A"/>
 </symbol>
 
-<!-- Servicio técnico: puerta frontal abierta y cartucho -->
-<symbol id="il-svc" viewBox="0 0 400 330">
-  <use href="#il-mfp" x="90" y="40" width="240" height="260"/>
-  <g fill="none" stroke="#32363A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="132" y="182" width="156" height="94" rx="4" fill="#E8EAEB"/>
-    <circle cx="186" cy="214" r="15" fill="#FFFFFF"/>
-    <circle cx="186" cy="214" r="5"/>
-    <path d="M206 206h66M206 222h50M146 254h128"/>
-    <path d="M128 178L74 204v86l54-14z" fill="#FFFFFF"/>
-    <path d="M90 240h22"/>
-    <g transform="rotate(-8 330 290)">
-      <rect x="270" y="270" width="112" height="30" rx="9" fill="#FFFFFF"/>
-      <rect x="352" y="270" width="30" height="30" rx="9" fill="#E8EAEB"/>
-      <path d="M284 285h40" stroke="#E1221A" stroke-width="4"/>
-    </g>
-  </g>
-  <g transform="translate(30 70) scale(2.4)" fill="none" stroke="#121416" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z" fill="#FFFFFF"/>
-  </g>
-</symbol>
 
-<!-- Consumibles: cartuchos de tóner y caja de entrega -->
-<symbol id="il-toner" viewBox="0 0 400 300">
-  <ellipse cx="200" cy="262" rx="170" ry="6" fill="#121416" opacity=".07"/>
-  <g fill="none" stroke="#32363A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M220 130l18-26h126l18 26" fill="#F5F6F6"/>
-    <rect x="220" y="130" width="162" height="128" rx="4" fill="#FFFFFF"/>
-    <path d="M300 104v26M220 130h162"/>
-    <rect x="248" y="160" width="60" height="34" rx="2" fill="#F5F6F6"/>
-    <path d="M256 172h36M256 182h24" stroke="#8E9499" stroke-width="1.5"/>
-    <rect x="6" y="214" width="196" height="44" rx="12" fill="#FFFFFF"/>
-    <rect x="168" y="214" width="34" height="44" rx="12" fill="#E8EAEB"/>
-    <path d="M28 236h70" stroke="#E1221A" stroke-width="5"/>
-    <rect x="20" y="166" width="196" height="44" rx="12" fill="#FFFFFF"/>
-    <rect x="182" y="166" width="34" height="44" rx="12" fill="#E8EAEB"/>
-    <path d="M42 188h50" stroke="#8E9499" stroke-width="5"/>
-    <rect x="34" y="118" width="196" height="44" rx="12" fill="#FFFFFF"/>
-    <rect x="196" y="118" width="34" height="44" rx="12" fill="#E8EAEB"/>
-    <path d="M56 140h50" stroke="#8E9499" stroke-width="5"/>
-  </g>
-</symbol>
 </defs>
 </svg>
 
@@ -725,36 +647,14 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
       </div>
       <p class="hero-note">Renta de impresoras y multifuncionales, servicio técnico y consumibles para empresas en Cancún.</p>
     </div>
-    <!-- IMAGE_PLACEHOLDER: hero — sustituir por fotografía real (técnico BRINT / multifuncional en oficina). Se conservan los callouts como capa sobre la foto. -->
-    <figure class="hero-v" data-asset="IMAGE_PLACEHOLDER:hero">
-      <svg class="scene" viewBox="0 0 640 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Multifuncional profesional con los cinco componentes del servicio administrado: equipo, consumibles, mantenimiento, soporte técnico y control">
-        <rect width="640" height="560" fill="#121416"/>
-        <g stroke="#1E2124" stroke-width="1">
-          <path d="M0 80h640M0 160h640M0 240h640M0 320h640M80 0v430M160 0v430M240 0v430M320 0v430M400 0v430M480 0v430M560 0v430"/>
-        </g>
-        <rect y="430" width="640" height="130" fill="#1A1D20"/>
-        <path d="M0 430h640" stroke="#2A2E32" stroke-width="2"/>
-        <ellipse cx="345" cy="432" rx="190" ry="10" fill="#000" opacity=".35"/>
-        <use href="#il-mfp" x="180" y="78" width="330" height="357"/>
-        <g fill="none" stroke="#6B7176" stroke-width="1.5">
-          <path d="M318 112L60 88"/>
-          <path d="M300 205L40 217"/>
-          <path d="M330 320L40 351"/>
-          <path d="M440 150L600 88"/>
-          <path d="M441 247L600 284"/>
-        </g>
-        <g fill="#E1221A" stroke="#121416" stroke-width="3">
-          <circle cx="318" cy="112" r="7"/><circle cx="300" cy="205" r="7"/><circle cx="330" cy="320" r="7"/><circle cx="440" cy="150" r="7"/><circle cx="441" cy="247" r="7"/>
-        </g>
-      </svg>
-      <ul class="callouts" aria-hidden="true">
-        <li style="left:4%;top:13%"><b>01</b>Equipo</li>
-        <li style="left:2%;top:36%"><b>02</b>Consumibles</li>
-        <li style="left:2%;top:60%"><b>03</b>Mantenimiento</li>
-        <li style="right:4%;top:13%"><b>05</b>Control</li>
-        <li style="right:2%;top:48%"><b>04</b>Soporte técnico</li>
+    <!-- IMAGE_PLACEHOLDER (stock Pexels #37688149) → sustituir por BRINT-4 cuando esté en el repo -->
+    <figure class="hero-v hero-photo" data-asset="IMAGE_PLACEHOLDER:hero" data-target="BRINT-4">
+      <img class="ph" src="https://images.pexels.com/photos/37688149/pexels-photo-37688149.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=1500" srcset="https://images.pexels.com/photos/37688149/pexels-photo-37688149.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=720&amp;h=900 720w, https://images.pexels.com/photos/37688149/pexels-photo-37688149.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=1500 1200w, https://images.pexels.com/photos/37688149/pexels-photo-37688149.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1680&amp;h=2100 1680w" sizes="(max-width: 920px) 100vw, 640px" width="1200" height="1500" alt="Técnico revisando el panel de control de un equipo de impresión de oficina" loading="eager" fetchpriority="high" decoding="async">
+      <ul class="hchips" aria-hidden="true">
+        <li><span class="d"></span>Mantenimiento preventivo y correctivo</li>
+        <li><span class="d"></span>Soporte técnico</li>
       </ul>
-      <figcaption>Equipo, consumibles, mantenimiento, soporte y control en una sola relación.</figcaption>
+      <figcaption class="sr">Equipo, consumibles, mantenimiento, soporte y control en una sola relación.</figcaption>
     </figure>
   </div>
 </section>
@@ -794,10 +694,16 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 
 <section class="sec mp" id="administrados" aria-labelledby="mp-t">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eb">Servicios administrados de impresión</p>
-      <h2 class="h2" id="mp-t">Una solución alrededor de tu operación.</h2>
-      <p class="lead">Analizamos cómo imprime tu empresa para recomendar equipos y servicios adecuados a su volumen, usuarios y necesidades.</p>
+    <div class="mp-top">
+      <div class="sec-head rv" style="margin-bottom:0">
+        <p class="eb">Servicios administrados de impresión</p>
+        <h2 class="h2" id="mp-t">Una solución alrededor de tu operación.</h2>
+        <p class="lead">Analizamos cómo imprime tu empresa para recomendar equipos y servicios adecuados a su volumen, usuarios y necesidades.</p>
+      </div>
+      <!-- IMAGE_PLACEHOLDER (stock Pexels #9301887) → sustituir por BRINT-1 -->
+      <figure class="mp-photo rv" data-asset="IMAGE_PLACEHOLDER:managed" data-target="BRINT-1">
+        <img class="ph" src="https://images.pexels.com/photos/9301887/pexels-photo-9301887.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=900" srcset="https://images.pexels.com/photos/9301887/pexels-photo-9301887.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=450 600w, https://images.pexels.com/photos/9301887/pexels-photo-9301887.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=900 1200w" sizes="(max-width: 920px) 100vw, 560px" width="1200" height="900" alt="Persona escaneando un documento en un multifuncional dentro de una oficina" loading="lazy" decoding="async">
+      </figure>
     </div>
     <!-- Alcance de cada capacidad MPS: NEEDS_VERIFICATION -->
     <ol class="rail rv">
@@ -871,28 +777,28 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     <div class="sols">
       <!-- IMAGE_PLACEHOLDER: categoría oficina compacta -->
       <a class="sol w rv" href="#cotizar" data-ev="quote_cta_click" data-loc="solution_compact" data-ctx="Oficina compacta">
-        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-compacta"><svg viewBox="0 0 400 225" role="img" aria-label="Ilustración de un multifuncional de escritorio"><rect y="168" width="400" height="57" fill="#ECEEEF"/><g fill="#FFFFFF" stroke="#32363A" stroke-width="2"><rect x="70" y="150" width="260" height="10" rx="2"/><path d="M90 160v42M310 160v42"/></g><use href="#il-desk" x="110" y="28" width="180" height="120"/></svg></div>
+        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-compacta"><img class="ph" src="https://images.pexels.com/photos/8297569/pexels-photo-8297569.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=675" srcset="https://images.pexels.com/photos/8297569/pexels-photo-8297569.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=337 600w, https://images.pexels.com/photos/8297569/pexels-photo-8297569.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=675 1200w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 600px" width="1200" height="675" alt="Oficina pequeña con una impresora de escritorio junto a los puestos de trabajo" loading="lazy" decoding="async"></div>
         <h3 class="h3">Oficina compacta</h3>
         <p>Equipos de escritorio para equipos pequeños, recepciones y consultorios.</p>
         <span class="go">Solicitar asesoría<svg class="ic" aria-hidden="true"><use href="#ic-go"/></svg></span>
       </a>
       <!-- IMAGE_PLACEHOLDER: multifuncional departamental -->
       <a class="sol w rv" href="#cotizar" data-ev="quote_cta_click" data-loc="solution_departmental" data-ctx="Multifuncionales departamentales">
-        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-departamental"><svg viewBox="0 0 400 225" role="img" aria-label="Ilustración de un multifuncional departamental"><rect y="190" width="400" height="35" fill="#ECEEEF"/><use href="#il-mfp" x="128" y="16" width="160" height="200"/></svg></div>
+        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-departamental"><img class="ph" src="https://images.pexels.com/photos/7964539/pexels-photo-7964539.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=675" srcset="https://images.pexels.com/photos/7964539/pexels-photo-7964539.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=337 600w, https://images.pexels.com/photos/7964539/pexels-photo-7964539.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=675 1200w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 600px" width="1200" height="675" alt="Dos colaboradores usando un multifuncional de piso en un área administrativa" loading="lazy" decoding="async"></div>
         <h3 class="h3">Multifuncionales departamentales</h3>
         <p>Imprimir, copiar y escanear para áreas completas con varios usuarios.</p>
         <span class="go">Solicitar asesoría<svg class="ic" aria-hidden="true"><use href="#ic-go"/></svg></span>
       </a>
       <!-- IMAGE_PLACEHOLDER: alto volumen -->
       <a class="sol rv" href="#cotizar" data-ev="quote_cta_click" data-loc="solution_high_volume" data-ctx="Alto volumen">
-        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-alto-volumen"><svg viewBox="0 0 400 300" role="img" aria-label="Ilustración de un equipo de alto volumen con alimentador y finalizador"><rect y="240" width="400" height="60" fill="#ECEEEF"/><use href="#il-hv" x="26" y="20" width="350" height="249"/></svg></div>
+        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-alto-volumen"><img class="ph" src="https://images.pexels.com/photos/3791246/pexels-photo-3791246.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=900&amp;h=675" srcset="https://images.pexels.com/photos/3791246/pexels-photo-3791246.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=450&amp;h=337 450w, https://images.pexels.com/photos/3791246/pexels-photo-3791246.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=900&amp;h=675 900w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 400px" width="900" height="675" alt="Persona copiando documentos en un equipo de oficina de alto volumen con alimentador y gabinete" loading="lazy" decoding="async"></div>
         <h3 class="h3">Alto volumen</h3>
         <p>Para áreas que procesan documentos durante todo el día.</p>
         <span class="go">Solicitar asesoría<svg class="ic" aria-hidden="true"><use href="#ic-go"/></svg></span>
       </a>
       <!-- IMAGE_PLACEHOLDER: color -->
       <a class="sol rv" href="#cotizar" data-ev="quote_cta_click" data-loc="solution_color" data-ctx="Color">
-        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-color"><svg viewBox="0 0 400 300" role="img" aria-label="Ilustración de un multifuncional a color"><rect y="240" width="400" height="60" fill="#ECEEEF"/><use href="#il-color" x="110" y="26" width="180" height="246"/></svg></div>
+        <div class="art" data-asset="IMAGE_PLACEHOLDER:sol-color"><img class="ph" src="https://images.pexels.com/photos/11833899/pexels-photo-11833899.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=900&amp;h=675" srcset="https://images.pexels.com/photos/11833899/pexels-photo-11833899.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=450&amp;h=337 450w, https://images.pexels.com/photos/11833899/pexels-photo-11833899.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=900&amp;h=675 900w" sizes="(max-width: 640px) 100vw, (max-width: 920px) 50vw, 400px" width="900" height="675" alt="Multifuncional a color sobre un mueble de oficina" loading="lazy" decoding="async"></div>
         <h3 class="h3">Color</h3>
         <p>Material comercial, reportes y documentos que necesitan color.</p>
         <span class="go">Solicitar asesoría<svg class="ic" aria-hidden="true"><use href="#ic-go"/></svg></span>
@@ -931,8 +837,8 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 
 <section class="sec" id="soporte" aria-labelledby="sup-t">
   <div class="wrap sup">
-    <!-- IMAGE_PLACEHOLDER: técnico BRINT dando mantenimiento -->
-    <div class="art rv" data-asset="IMAGE_PLACEHOLDER:soporte"><svg viewBox="0 0 400 330" role="img" aria-label="Ilustración de mantenimiento a un multifuncional con la puerta frontal abierta"><use href="#il-svc" x="0" y="0" width="400" height="330"/></svg></div>
+    <!-- IMAGE_PLACEHOLDER (stock Pexels #12437643) → sustituir por BRINT-3 -->
+    <figure class="art sup-photo rv" data-asset="IMAGE_PLACEHOLDER:soporte" data-target="BRINT-3"><img class="ph" src="https://images.pexels.com/photos/12437643/pexels-photo-12437643.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1400&amp;h=1120" srcset="https://images.pexels.com/photos/12437643/pexels-photo-12437643.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=840&amp;h=672 840w, https://images.pexels.com/photos/12437643/pexels-photo-12437643.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1400&amp;h=1120 1400w" sizes="(max-width: 920px) 100vw, 680px" width="1400" height="1120" alt="Detalle de mantenimiento técnico en el interior de una impresora multifuncional" loading="lazy" decoding="async"></figure>
     <div class="sup-r rv">
       <p class="eb">Servicio técnico</p>
       <h2 class="h2" id="sup-t">Soporte que continúa después de la instalación.</h2>
@@ -982,8 +888,9 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
         <dt>Contacto</dt><dd><a class="lnk" href="mailto:ventas@brint.com.mx" data-ev="email_click" data-loc="about">ventas@brint.com.mx</a></dd>
       </dl>
     </div>
-    <!-- IMAGE_PLACEHOLDER: equipo BRINT / consumibles y logística -->
-    <div class="art bg-cl rv" data-asset="IMAGE_PLACEHOLDER:nosotros"><svg viewBox="0 0 400 300" role="img" aria-label="Ilustración de cartuchos de tóner y una caja de entrega"><rect y="262" width="400" height="38" fill="#ECEEEF"/><use href="#il-toner" x="0" y="0" width="400" height="300"/></svg></div>
+    <!-- IMAGE_PLACEHOLDER (stock Pexels #36946571) → sustituir por BRINT-12 (equipo) y BRINT-14 (inventario). BRINT_TEAM_PHOTO_RESHOOT pendiente.
+         No se usa stock de personas aquí para no presentarlas como equipo de BRINT. -->
+    <figure class="art about-photo rv" data-asset="IMAGE_PLACEHOLDER:nosotros" data-target="BRINT-12"><img class="ph" src="https://images.pexels.com/photos/36946571/pexels-photo-36946571.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=900" srcset="https://images.pexels.com/photos/36946571/pexels-photo-36946571.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=600&amp;h=450 600w, https://images.pexels.com/photos/36946571/pexels-photo-36946571.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=1200&amp;h=900 1200w" sizes="(max-width: 920px) 100vw, 600px" width="1200" height="900" alt="Estantería organizada con cajas e insumos de oficina" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 

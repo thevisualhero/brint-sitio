@@ -26,3 +26,21 @@ El HTML contiene comentarios internos que marcan contenido por confirmar:
 `KYOCERA_RELATIONSHIP_NEEDS_VERIFICATION`, `CONSUMABLE_MANAGEMENT_NEEDS_VERIFICATION`, `FORM_BACKEND_REQUIRED`, `WHATSAPP_NUMBER_REQUIRED`, `CANONICAL_PLACEHOLDER`.
 
 Las ilustraciones son temporales y se sustituirán por fotografía real de BRINT.
+
+## Imágenes (temporales)
+
+Las fotografías actuales son **stock de Pexels** (licencia Pexels: uso libre, sin atribución obligatoria), enlazadas desde `images.pexels.com` con recorte y tamaño responsivo. Están marcadas en el HTML con `data-asset="IMAGE_PLACEHOLDER:*"` y `data-target` indica la foto de la sesión BRINT que debe sustituirlas.
+
+| Slot | Stock actual (Pexels ID) | Sustituir por |
+|---|---|---|
+| Hero | 37688149 | BRINT-4 |
+| Servicios administrados | 9301887 | BRINT-1 |
+| Soporte | 12437643 | BRINT-3 |
+| Nosotros | 36946571 | BRINT-12 (+ BRINT-14 / BRINT-13 como detalle) |
+| Soluciones · Oficina compacta | 8297569 | stock / generación (sin foto BRINT adecuada) |
+| Soluciones · Departamental | 7964539 | stock / generación |
+| Soluciones · Alto volumen | 3791246 | stock / generación |
+| Soluciones · Color | 11833899 | stock / generación |
+| Soluciones · Flotas | diagrama SVG | se mantiene |
+
+Al subir las fotos BRINT a `assets/images/`, reemplazar el `src`/`srcset` de cada `<img>` por las versiones WebP optimizadas.
