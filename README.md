@@ -15,10 +15,14 @@ assets/brint-logo-red.png  Logo (extraído de la presentación; reemplazar por S
 assets/brint-logo-white.png
 ```
 
+## FORM_BACKEND_REQUIRED
+
+Los formularios de Cotizar y Reportar servicio validan y muestran un estado de éxito **simulado** (`DEMO_MODE = true` en `index.html`; el payload incluye `demo: true` y la interfaz indica que no se envió). Antes de producción hay que definir destino: email, CRM, Google Sheets, API, Formspree (o similar) o backend propio, y cambiar `DEMO_MODE` a `false`.
+
 ## Pendientes antes de producción
 
 El HTML contiene comentarios internos que marcan contenido por confirmar:
 `NEEDS_VERIFICATION`, `IMAGE_PLACEHOLDER`, `SLA_NEEDS_VERIFICATION`, `REPORTING_NEEDS_VERIFICATION`,
-`KYOCERA_RELATIONSHIP_NEEDS_VERIFICATION`, `WHATSAPP_NUMBER_REQUIRED`, `CANONICAL_PLACEHOLDER`.
+`KYOCERA_RELATIONSHIP_NEEDS_VERIFICATION`, `CONSUMABLE_MANAGEMENT_NEEDS_VERIFICATION`, `FORM_BACKEND_REQUIRED`, `WHATSAPP_NUMBER_REQUIRED`, `CANONICAL_PLACEHOLDER`.
 
 Las ilustraciones son temporales y se sustituirán por fotografía real de BRINT.

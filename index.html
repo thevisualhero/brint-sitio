@@ -780,7 +780,8 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     </div>
     <ul class="load rv">
       <li><svg class="ic" aria-hidden="true"><use href="#ic-printer"/></svg><b>Equipos</b><span>Selección, instalación y reemplazo</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><b>Consumibles</b><span>Tóner a tiempo, sin inventario</span></li>
+      <!-- CONSUMABLE_MANAGEMENT_NEEDS_VERIFICATION -->
+      <li><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><b>Consumibles</b><span>Abastecimiento según tu operación</span></li>
       <li><svg class="ic" aria-hidden="true"><use href="#ic-cal"/></svg><b>Mantenimiento</b><span>Revisiones que nadie agenda</span></li>
       <li><svg class="ic" aria-hidden="true"><use href="#ic-alert"/></svg><b>Fallas</b><span>Paros que detienen un área</span></li>
       <li><svg class="ic" aria-hidden="true"><use href="#ic-cog"/></svg><b>Refacciones</b><span>Piezas que hay que conseguir</span></li>
@@ -801,7 +802,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     <!-- Alcance de cada capacidad MPS: NEEDS_VERIFICATION -->
     <ol class="rail rv">
       <li><span class="node" aria-hidden="true"></span><span class="n">01</span><h3 class="h3">Equipo</h3><p>Multifuncionales dimensionados a tu volumen y tus áreas.</p></li>
-      <li><span class="node" aria-hidden="true"></span><span class="n">02</span><h3 class="h3">Consumibles</h3><p>Tóner y suministros para que la operación no se detenga.</p></li>
+      <li><span class="node" aria-hidden="true"></span><span class="n">02</span><h3 class="h3">Consumibles</h3><p>Gestión de consumibles según tu operación.</p><!-- CONSUMABLE_MANAGEMENT_NEEDS_VERIFICATION --></li>
       <li><span class="node" aria-hidden="true"></span><span class="n">03</span><h3 class="h3">Mantenimiento</h3><p>Preventivo para evitar fallas, correctivo cuando ocurren.</p></li>
       <li><span class="node" aria-hidden="true"></span><span class="n">04</span><h3 class="h3">Soporte</h3><p>Diagnóstico y atención técnica cuando algo falla.</p></li>
       <li><span class="node" aria-hidden="true"></span><span class="n">05</span><h3 class="h3">Control</h3><p>Visibilidad sobre uso, volumen y necesidades de crecimiento.</p></li>
@@ -904,8 +905,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
         <span class="go">Solicitar asesoría<svg class="ic" aria-hidden="true"><use href="#ic-go"/></svg></span>
       </a>
     </div>
-    <!-- KYOCERA_RELATIONSHIP_NEEDS_VERIFICATION: no usar "distribuidor autorizado" ni logotipo -->
-    <p class="note rv">BRINT ha trabajado con equipos de marcas como Kyocera en renta, venta y servicio. La marca y el modelo se recomiendan según tu operación.</p>
+    <!-- KYOCERA_RELATIONSHIP_NEEDS_VERIFICATION: no mencionar marcas de fabricantes en front-end hasta confirmar vigencia -->
   </div>
 </section>
 
@@ -1346,7 +1346,10 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     pending = null;
   }
 
-  /* ---------- formularios ---------- */
+  /* ---------- formularios ----------
+     FORM_BACKEND_REQUIRED: no hay destino real (email / CRM / Google Sheets / API / Formspree / backend propio).
+     Mientras DEMO_MODE sea true, el envío es simulado, el payload lleva demo:true y la UI lo indica. */
+  var DEMO_MODE = true;
   function digits(v) { return (v || '').replace(/\D/g, ''); }
   function val(form, n) { var el = form.elements[n]; return el ? (el.value || '').trim() : ''; }
   function checked(form, n) { return $$('input[name="' + n + '"]:checked', form).map(function (i) { return i.value; }); }
@@ -1429,7 +1432,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
       btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Enviando…';
       setTimeout(function () {
         var data = collect(form);
-        var payload = { form_type: type, submitted_at: new Date().toISOString(), form_page: '#' + currentView };
+        var payload = { form_type: type, demo: DEMO_MODE, submitted_at: new Date().toISOString(), form_page: '#' + currentView };
         for (var k in data) payload[k] = data[k];
         for (var a in attr) payload[a] = attr[a];
         if (type === 'quote') {
@@ -1438,19 +1441,20 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
           if (needs.indexOf('Renta') > -1) track('rental_interest', { location: 'quote_form' });
           if (needs.indexOf('Administración de equipos') > -1) track('managed_print_interest', { location: 'quote_form' });
           if (needs.indexOf('Servicio técnico') > -1 || needs.indexOf('Consumibles') > -1) track('service_interest', { location: 'quote_form' });
-          track('form_submit', { form_type: type, requested_service: payload.requested_service, equipment_count: data.equipos || '', source: attr.utm_source || '(direct)', campaign: attr.utm_campaign || '', landing_page: attr.landing_page });
+          track('form_submit', { form_type: type, demo: DEMO_MODE, requested_service: payload.requested_service, equipment_count: data.equipos || '', source: attr.utm_source || '(direct)', campaign: attr.utm_campaign || '', landing_page: attr.landing_page });
           var dl = $('#q-ok-sum'); dl.innerHTML = '';
           row(dl, 'Empresa', data.empresa); row(dl, 'Necesidad', payload.requested_service); row(dl, 'Equipos', data.equipos); row(dl, 'Contacto', data.telefono + (data.email ? ' · ' + data.email : ''));
           $('#q-ok-p').textContent = 'Gracias, ' + data.nombre.split(' ')[0] + '. Un asesor de BRINT se pondrá en contacto contigo para entender tu operación.';
           $('#q-payload').textContent = JSON.stringify(payload, null, 2);
         } else {
-          track('form_submit', { form_type: type, source: attr.utm_source || '(direct)', landing_page: attr.landing_page });
+          track('form_submit', { form_type: type, demo: DEMO_MODE, source: attr.utm_source || '(direct)', landing_page: attr.landing_page });
           var sl = $('#s-ok-sum'); sl.innerHTML = '';
           row(sl, 'Empresa', data.empresa); row(sl, 'Equipo', data.equipo); row(sl, 'Contacto', data.nombre + ' · ' + data.telefono);
           $('#s-payload').textContent = JSON.stringify(payload, null, 2);
         }
         btn.removeAttribute('aria-busy'); btn.textContent = label;
         form.parentNode.classList.add('done');
+        form.parentNode.setAttribute('data-submit-mode', DEMO_MODE ? 'demo' : 'live');
         form.classList.add('done');
         var okT = $('.ok .h2', form); okT.focus({ preventScroll: true });
         form.parentNode.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
