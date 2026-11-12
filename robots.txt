@@ -1,0 +1,4 @@
+# Producción (brint.com.mx). En GitHub Pages (staging) este archivo no aplica; la página lleva meta noindex.
+User-agent: *
+Allow: /
+Sitemap: https://www.brint.com.mx/sitemap.xml

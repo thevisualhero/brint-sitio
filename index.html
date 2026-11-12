@@ -17,6 +17,8 @@
 <meta property="og:image" content="https://www.brint.com.mx/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
+<!-- STAGING: quitar noindex al publicar en brint.com.mx (REMOVE_NOINDEX_AT_LAUNCH) -->
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
@@ -556,6 +558,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 <symbol id="ic-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
 <symbol id="ic-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
 <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></symbol>
+<symbol id="ic-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2 1.3a11 11 0 0 0 7.2 7.2l1.3-2 4.2 1.6V19a1.5 1.5 0 0 1-1.6 1.5C10.7 20 4 13.3 3.5 5.1A1.5 1.5 0 0 1 5 3.5z"/></symbol>
 <symbol id="ic-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
 <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol>
 <symbol id="ic-headset" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></symbol>
@@ -610,6 +613,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
       <a href="#nosotros">Nosotros</a>
     </nav>
     <div class="hdr-r">
+      <a class="rep rep-d" href="#" data-phone data-loc="header" hidden><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg><span data-phone-text></span></a>
       <a class="rep rep-d" href="#reportar-servicio" data-ev="support_cta_click" data-loc="header"><svg class="ic" aria-hidden="true"><use href="#ic-wrench"/></svg>Reportar servicio</a>
       <a class="btn btn-red btn-sm hdr-q" href="#cotizar" data-ev="quote_cta_click" data-loc="header">Cotizar</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><svg class="ic" aria-hidden="true"><use href="#ic-menu"/></svg></button>
@@ -627,7 +631,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     <a class="btn btn-red btn-lg" href="#cotizar" data-ev="quote_cta_click" data-loc="mobile_menu">Cotizar una solución</a>
     <a class="btn btn-line btn-lg" href="#reportar-servicio" data-ev="support_cta_click" data-loc="mobile_menu">Reportar servicio</a>
   </div>
-  <p class="mnav-c">ventas@brint.com.mx · Cancún, Quintana Roo</p>
+  <p class="mnav-c"><a href="#" data-phone data-loc="mobile_menu" hidden style="font-weight:600;color:var(--ink)"><span data-phone-text></span> · </a><span data-email-text>ventas@brint.com.mx</span> · Cancún, Quintana Roo</p>
 </div>
 
 <main id="main">
@@ -901,7 +905,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     <div class="final-ctas">
       <a class="btn btn-white btn-lg" href="#cotizar" data-ev="quote_cta_click" data-loc="final_cta">Evaluar mi operación<svg class="ic ic-go" aria-hidden="true"><use href="#ic-go"/></svg></a>
       <a class="btn btn-wline btn-lg" href="mailto:ventas@brint.com.mx" data-ev="email_click" data-loc="final_cta">Hablar con BRINT</a>
-      <small>ventas@brint.com.mx</small>
+      <small><span data-phone-wrap hidden><a href="#" data-phone data-loc="final_cta" style="color:#fff"><span data-phone-text></span></a> · </span>ventas@brint.com.mx</small>
     </div>
   </div>
 </section>
@@ -923,7 +927,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
           <li><span class="num">02</span><div><b>Te contactamos</b><span>Por teléfono, WhatsApp o correo, como prefieras.</span></div></li>
           <li><span class="num">03</span><div><b>Proponemos una solución</b><span>Equipos, modalidad y servicio de acuerdo con tu volumen.</span></div></li>
         </ol>
-        <p class="alt">¿Prefieres escribirnos? <a href="mailto:ventas@brint.com.mx" data-ev="email_click" data-loc="quote_page">ventas@brint.com.mx</a><br>¿Ya eres cliente? <a href="#reportar-servicio" data-ev="support_cta_click" data-loc="quote_page">Reportar servicio</a></p>
+        <p class="alt"><span data-phone-wrap hidden>¿Prefieres llamar? <a href="#" data-phone data-loc="quote_page"><span data-phone-text></span></a><br></span>¿Prefieres escribirnos? <a href="mailto:ventas@brint.com.mx" data-ev="email_click" data-loc="quote_page" data-email>ventas@brint.com.mx</a><br>¿Ya eres cliente? <a href="#reportar-servicio" data-ev="support_cta_click" data-loc="quote_page">Reportar servicio</a></p>
       </div>
 
       <div class="form" id="qwrap">
@@ -982,6 +986,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
               <span class="err">Necesitamos tu aceptación para contactarte.</span>
             </div>
             <input type="hidden" name="interes_categoria" id="q-cat">
+            <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>No llenar<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
             <button class="btn btn-red btn-lg submit" type="submit">Solicitar evaluación</button>
           </div>
 
@@ -992,8 +997,8 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
             <dl class="ok-sum" id="q-ok-sum"></dl>
             <p class="alt">Si quieres agregar algo, escríbenos a <a href="mailto:ventas@brint.com.mx">ventas@brint.com.mx</a>.</p>
             <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-line" href="#">Volver al inicio</a><button class="btn btn-line" type="button" data-reset="qform">Enviar otra solicitud</button></div>
-            <p class="proto">Prototipo: la solicitud no se envió a ningún servidor.</p>
-            <details class="dev"><summary>Vista interna del lead (sólo prototipo)</summary><pre id="q-payload"></pre></details>
+            <p class="proto" data-demo-note>Prototipo: la solicitud no se envió a ningún servidor.</p>
+            <details class="dev" data-demo-note><summary>Vista interna del lead</summary><pre id="q-payload"></pre></details>
           </div>
         </form>
       </div>
@@ -1025,6 +1030,7 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
           <div class="fld" data-f="telefono"><label for="s-tel">Teléfono</label><input class="in" id="s-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="10 dígitos"><span class="err">Escribe un número de 10 dígitos.</span></div>
           <div class="fld" data-f="equipo"><label for="s-eq">Equipo / ubicación</label><input class="in" id="s-eq" name="equipo" type="text" placeholder="Ej.: multifuncional de recepción, sucursal centro"><span class="err">Indica qué equipo es o dónde está.</span></div>
           <div class="fld" data-f="descripcion"><label for="s-desc">Descripción del problema</label><textarea class="in" id="s-desc" name="descripcion" placeholder="Qué pasa, desde cuándo y si aparece algún mensaje o código en pantalla."></textarea><span class="err">Describe el problema en al menos unas palabras.</span></div>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>No llenar<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
           <button class="btn btn-ink btn-lg submit" type="submit">Enviar reporte</button>
         </div>
         <div class="ok sp" aria-live="polite">
@@ -1034,8 +1040,8 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
           <p class="lead">El equipo de servicio de BRINT se comunicará contigo para dar seguimiento.</p>
           <dl class="ok-sum" id="s-ok-sum"></dl>
           <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-line" href="#">Volver al inicio</a><button class="btn btn-line" type="button" data-reset="sform">Reportar otro equipo</button></div>
-          <p class="proto">Prototipo: el reporte no se envió a ningún servidor.</p>
-          <details class="dev"><summary>Vista interna del reporte (sólo prototipo)</summary><pre id="s-payload"></pre></details>
+          <p class="proto" data-demo-note>Prototipo: el reporte no se envió a ningún servidor.</p>
+          <details class="dev" data-demo-note><summary>Vista interna del reporte</summary><pre id="s-payload"></pre></details>
         </div>
       </form>
     </div>
@@ -1045,6 +1051,10 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
         <b>WhatsApp de soporte</b>
         <!-- WHATSAPP_NUMBER_REQUIRED -->
         <button class="wa-btn" type="button" data-wa data-loc="support_page"><svg class="ic" aria-hidden="true"><use href="#ic-chat"/></svg>Escribir por WhatsApp</button>
+      </div>
+      <div class="blk" data-phone-wrap hidden>
+        <b>Teléfono</b>
+        <a class="lnk" href="#" data-phone data-loc="support_page" style="align-self:flex-start"><span data-phone-text></span></a>
       </div>
       <div class="blk">
         <b>Correo</b>
@@ -1110,7 +1120,8 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
         <ul>
           <li>ECOBRINT S.A. de C.V.</li>
           <li>Cancún, Quintana Roo, México</li>
-          <li><a href="mailto:ventas@brint.com.mx" data-ev="email_click" data-loc="footer">ventas@brint.com.mx</a></li>
+          <li data-phone-wrap hidden><a href="#" data-phone data-loc="footer"><span data-phone-text></span></a></li>
+          <li><a href="mailto:ventas@brint.com.mx" data-ev="email_click" data-loc="footer" data-email>ventas@brint.com.mx</a></li>
           <!-- WHATSAPP_NUMBER_REQUIRED -->
           <li><button class="wa" type="button" data-wa data-loc="footer">WhatsApp</button></li>
         </ul>
@@ -1134,6 +1145,28 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+/* =====================================================================
+   CONFIGURACIÓN BRINT — único lugar a editar antes de producción.
+   Todo lo vacío se oculta o queda en modo demo; nada se inventa.
+   ===================================================================== */
+var BRINT_CONFIG = {
+  // PHONE_NUMBER_REQUIRED — formato internacional sin espacios, ej. '+529981234567'
+  phone: '',
+  // WHATSAPP_NUMBER_REQUIRED — sólo dígitos con código de país, ej. '529981234567'
+  whatsapp: '',
+  whatsappText: 'Hola BRINT, me interesa una solución de impresión para mi empresa.',
+  // PUBLIC_EMAIL_NEEDS_VERIFICATION — hoy ventas@ es alias/redirección; confirmar destinatario real
+  emailSales: 'ventas@brint.com.mx',
+  // Futuro alias soporte@ (no publicar hasta que exista)
+  emailSupport: '',
+  // FORM_BACKEND_REQUIRED — URL que recibe el POST (Formspree, Make/Zapier webhook, Apps Script, API propia)
+  endpoints: { quote: '', support: '' },
+  // 'json' (Formspree, webhooks, API) | 'text' (Google Apps Script, evita preflight CORS)
+  endpointFormat: 'json',
+  // GTM_CONTAINER_ID_REQUIRED — ej. 'GTM-XXXXXXX'. Vacío = sólo window.dataLayer, sin scripts externos
+  gtmId: ''
+};
+
 (function () {
   'use strict';
   var doc = document, root = doc.documentElement;
@@ -1173,6 +1206,29 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
     toastEl.textContent = msg; toastEl.classList.add('on');
     clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('on'); }, 4200);
   }
+
+  /* ---------- GTM (sólo si hay ID) ---------- */
+  if (BRINT_CONFIG.gtmId) {
+    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    var g = doc.createElement('script'); g.async = true;
+    g.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(BRINT_CONFIG.gtmId);
+    doc.head.appendChild(g);
+  }
+
+  /* ---------- datos de contacto desde BRINT_CONFIG ---------- */
+  function fmtPhone(p) {
+    var d = p.replace(/\D/g, ''); if (d.indexOf('52') === 0 && d.length === 12) d = d.slice(2);
+    return d.length === 10 ? d.slice(0, 3) + ' ' + d.slice(3, 6) + ' ' + d.slice(6) : p;
+  }
+  if (BRINT_CONFIG.phone) {
+    $$('[data-phone]').forEach(function (a) { a.setAttribute('href', 'tel:' + BRINT_CONFIG.phone); a.hidden = false; });
+    $$('[data-phone-text]').forEach(function (t) { t.textContent = fmtPhone(BRINT_CONFIG.phone); });
+    $$('[data-phone-wrap]').forEach(function (w) { w.hidden = false; });
+  }
+  if (BRINT_CONFIG.emailSales && BRINT_CONFIG.emailSales !== 'ventas@brint.com.mx') {
+    $$('a[href^="mailto:ventas@brint.com.mx"]').forEach(function (a) { a.setAttribute('href', 'mailto:' + BRINT_CONFIG.emailSales); if (a.textContent.indexOf('@') > -1) a.textContent = BRINT_CONFIG.emailSales; });
+  }
+  function waUrl() { return 'https://wa.me/' + BRINT_CONFIG.whatsapp + '?text=' + encodeURIComponent(BRINT_CONFIG.whatsappText); }
 
   /* ---------- menú móvil ---------- */
   var burger = $('.burger'), mnav = $('#mnav');
@@ -1223,11 +1279,18 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 
   /* ---------- clicks: tracking, contexto, WhatsApp ---------- */
   doc.addEventListener('click', function (e) {
+    var ph = e.target.closest('[data-phone]');
+    if (ph) { track('phone_click', { location: ph.getAttribute('data-loc') || '', conversion: 'call', lead_category: 'commercial' }); return; }
     var wa = e.target.closest('[data-wa]');
     if (wa) {
       e.preventDefault();
-      track('whatsapp_click', { location: wa.getAttribute('data-loc') || '', status: 'number_pending' });
-      toast('El número de WhatsApp se publicará pronto. Mientras tanto escríbenos a ventas@brint.com.mx');
+      if (BRINT_CONFIG.whatsapp) {
+        track('whatsapp_click', { location: wa.getAttribute('data-loc') || '', conversion: 'whatsapp', lead_category: 'commercial' });
+        window.open(waUrl(), '_blank', 'noopener');
+      } else {
+        track('whatsapp_click', { location: wa.getAttribute('data-loc') || '', status: 'number_pending' });
+        toast('El número de WhatsApp se publicará pronto. Mientras tanto escríbenos a ' + BRINT_CONFIG.emailSales);
+      }
       return;
     }
     var t = e.target.closest('[data-ev]');
@@ -1255,8 +1318,19 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
 
   /* ---------- formularios ----------
      FORM_BACKEND_REQUIRED: no hay destino real (email / CRM / Google Sheets / API / Formspree / backend propio).
-     Mientras DEMO_MODE sea true, el envío es simulado, el payload lleva demo:true y la UI lo indica. */
-  var DEMO_MODE = true;
+     Mientras BRINT_CONFIG.endpoints[tipo] esté vacío, el envío es simulado (demo:true) y la UI lo indica.
+     Con endpoint, sólo se muestra éxito si el servidor responde 2xx; si falla, se muestra error y el correo de respaldo. */
+  function isDemo(type) { return !BRINT_CONFIG.endpoints[type]; }
+  function send(type, payload) {
+    var url = BRINT_CONFIG.endpoints[type];
+    if (!url) return Promise.resolve({ demo: true });
+    var json = BRINT_CONFIG.endpointFormat !== 'text';
+    return fetch(url, {
+      method: 'POST',
+      headers: json ? { 'Content-Type': 'application/json', 'Accept': 'application/json' } : { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return { demo: false }; });
+  }
   function digits(v) { return (v || '').replace(/\D/g, ''); }
   function val(form, n) { var el = form.elements[n]; return el ? (el.value || '').trim() : ''; }
   function checked(form, n) { return $$('input[name="' + n + '"]:checked', form).map(function (i) { return i.value; }); }
@@ -1336,36 +1410,48 @@ details.dev pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-mono
         return;
       }
       var btn = $('button[type="submit"]', form), label = btn.textContent;
+      var data = collect(form);
+      if (data._gotcha) { return; } // spam: no enviar ni contar
+      delete data._gotcha;
       btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Enviando…';
-      setTimeout(function () {
-        var data = collect(form);
-        var payload = { form_type: type, demo: DEMO_MODE, submitted_at: new Date().toISOString(), form_page: '#' + currentView };
-        for (var k in data) payload[k] = data[k];
-        for (var a in attr) payload[a] = attr[a];
+      var demo = isDemo(type);
+      var payload = { form_type: type, lead_category: type === 'quote' ? 'commercial' : 'support', demo: demo, submitted_at: new Date().toISOString(), form_page: '#' + currentView, page_url: location.href };
+      for (var k in data) payload[k] = data[k];
+      for (var a in attr) payload[a] = attr[a];
+      if (type === 'quote') payload.requested_service = (data.necesidad || []).join(', ');
+      var minWait = new Promise(function (r) { setTimeout(r, 500); });
+      Promise.all([send(type, payload), minWait]).then(function (res) {
+        var result = res[0];
         if (type === 'quote') {
-          payload.requested_service = (data.necesidad || []).join(', ');
           var needs = data.necesidad || [];
           if (needs.indexOf('Renta') > -1) track('rental_interest', { location: 'quote_form' });
           if (needs.indexOf('Administración de equipos') > -1) track('managed_print_interest', { location: 'quote_form' });
           if (needs.indexOf('Servicio técnico') > -1 || needs.indexOf('Consumibles') > -1) track('service_interest', { location: 'quote_form' });
-          track('form_submit', { form_type: type, demo: DEMO_MODE, requested_service: payload.requested_service, equipment_count: data.equipos || '', source: attr.utm_source || '(direct)', campaign: attr.utm_campaign || '', landing_page: attr.landing_page });
+          track('form_submit', { form_type: 'quote', conversion: 'quote_submit', lead_category: 'commercial', demo: result.demo, requested_service: payload.requested_service, equipment_count: data.equipos || '', city: data.ciudad || '', source: attr.utm_source || '(direct)', medium: attr.utm_medium || '', campaign: attr.utm_campaign || '', landing_page: attr.landing_page });
           var dl = $('#q-ok-sum'); dl.innerHTML = '';
           row(dl, 'Empresa', data.empresa); row(dl, 'Necesidad', payload.requested_service); row(dl, 'Equipos', data.equipos); row(dl, 'Contacto', data.telefono + (data.email ? ' · ' + data.email : ''));
           $('#q-ok-p').textContent = 'Gracias, ' + data.nombre.split(' ')[0] + '. Un asesor de BRINT se pondrá en contacto contigo para entender tu operación.';
           $('#q-payload').textContent = JSON.stringify(payload, null, 2);
         } else {
-          track('form_submit', { form_type: type, demo: DEMO_MODE, source: attr.utm_source || '(direct)', landing_page: attr.landing_page });
+          track('form_submit', { form_type: 'support', conversion: 'support_request', lead_category: 'support', demo: result.demo, source: attr.utm_source || '(direct)', landing_page: attr.landing_page });
           var sl = $('#s-ok-sum'); sl.innerHTML = '';
           row(sl, 'Empresa', data.empresa); row(sl, 'Equipo', data.equipo); row(sl, 'Contacto', data.nombre + ' · ' + data.telefono);
           $('#s-payload').textContent = JSON.stringify(payload, null, 2);
         }
+        $$('[data-demo-note]', form).forEach(function (n) { n.hidden = !result.demo; });
         btn.removeAttribute('aria-busy'); btn.textContent = label;
         form.parentNode.classList.add('done');
-        form.parentNode.setAttribute('data-submit-mode', DEMO_MODE ? 'demo' : 'live');
+        form.parentNode.setAttribute('data-submit-mode', result.demo ? 'demo' : 'live');
         form.classList.add('done');
         var okT = $('.ok .h2', form); okT.focus({ preventScroll: true });
         form.parentNode.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-      }, 700);
+      }).catch(function (err) {
+        btn.removeAttribute('aria-busy'); btn.textContent = label;
+        var sum = $('.sum', form);
+        sum.textContent = 'No pudimos enviar tu ' + (type === 'quote' ? 'solicitud' : 'reporte') + '. Intenta de nuevo o escríbenos a ' + BRINT_CONFIG.emailSales + '.';
+        sum.classList.add('on'); sum.focus({ preventScroll: true });
+        track('form_submit_error', { form_type: type, error: String(err && err.message || err) });
+      });
     });
   }
 
